@@ -1,0 +1,251 @@
+
+Object-Oriented Programming (OOP) in C++ — Interview Notes
+
+What is OOP?
+A programming paradigm where programs are structured around objects rather than functions and logic.
+Objects represent real-world entities and contain both data (attributes) and behaviors (methods).
+
+Why use OOP?
+To avoid code duplication or repetition.
+To achieve modularity, reusability, scalability, and maintainability.
+
+Example Without OOP (repetition code)
+int main() {
+  string name;
+  int age, roll_no;
+  string address;
+
+  cin >> name >> age >> roll_no >> address;
+}
+Repeating this for multiple students is inefficient.
+
+
+Example With OOP using classes (User-Defined Data Type)
+class Student {
+public:
+  string name;
+  int age;
+  int roll_no;
+  string address;
+};
+
+Student is a user-defined datatype (class).
+Inside the class: variables (attributes/properties).
+
+
+Creating Objects:
+Student s1;  // Object of class Student
+Student s2;  // Another object
+Each object gets its own copy of variables.
+
+
+Accessing Class Members:
+int main() {
+  Student s1;
+  s1.name = "John";
+  s1.age = 20;
+  s1.roll_no = 101;
+  s1.address = "New York";
+}
+Access variables using the dot operator (.)
+
+
+for example:-
+car is class
+where as i20, harrier and swift are objects of the class car.
+
+
+
+What is Class?
+
+A class is a user-defined data type.
+It is a blueprint for creating objects.
+A class can contain both data (attributes) and functions (methods).
+
+What is Object?
+
+An object is an instance of a class.
+It represents a real-world entity that exists in the physical world.
+Objects hold their own state (data) and behavior (methods).
+
+
+Access Specifiers in C++:
+
+Private:
+By default, members of a class are private.
+Private members cannot be accessed directly from outside the class.
+Use getter and setter functions to access or modify them.
+
+Public:
+Public members can be accessed directly from outside the class using the dot operator.
+
+
+Data and Functions Inside a Class:
+
+A class can contain:
+-> Data ➔ also called attributes (e.g., name, age, roll_no)
+-> Functions ➔ also called methods (e.g., setName, getName)
+
+
+For Exanple:-
+#include<iostream>
+using namespace std;
+
+class Student {
+  private:
+    string name;
+    int age;
+
+  public:
+    void setName(string n) {
+      name = n;
+    }
+
+    string getName() {
+      return name;
+    }
+
+    void setAge(int a) {
+      age = a;
+    }
+
+    int getAge() {
+      return age;
+    }
+};
+
+int main() {
+  Student s1;
+  s1.setName("Adarsh");
+  s1.setAge(20);
+
+  cout << "Name: " << s1.getName() << endl;
+  cout << "Age: " << s1.getAge() << endl;
+
+  return 0;
+}
+
+
+Size of Class:
+The size of a class is determined by the size of its data members.
+if there is no member within the class it will still give size of 1 considering empty class
+why?
+
+class a{
+  int b;
+  char c;
+
+};
+
+the answer it is giving is 8 bytes why?
+This is because the compiler aligns the data members in memory for efficient access.
+The size of the class is the sum of the sizes of its data members, plus any padding added for alignment.
+
+
+Size of a Class
+The size of a class is determined by the size of its non-static data members.
+Functions (methods) inside the class do not contribute to the size of the object.
+If a class has no data members, it will still occupy 1 byte of memory.
+
+Why does an Empty Class have Size 1?
+To ensure that each object of the class has a unique memory address.
+If the size were 0, multiple objects could overlap in memory, which is invalid.
+So the compiler gives a minimum size of 1 byte to an empty class.
+
+for example:-
+
+class EmptyClass { };
+
+int main() {
+  EmptyClass obj;
+  cout << sizeof(obj) << endl;  // Output: 1
+}
+
+Size with data members:
+class A {
+  int b;   // 4 bytes
+  char c;  // 1 byte
+};
+Expected size = 4 (int) + 1 (char) = 5 bytes
+Actual size = 8 bytes (Why?)
+
+This happens because of memory alignment.
+Most systems align data to word boundaries (4 or 8 bytes) for efficient access.
+The compiler adds padding bytes to ensure proper alignment of each member.
+
+Explanation of Padding in Above Example:
+
+int b ➔ 4 bytes (aligned at 4-byte boundary)
+char c ➔ 1 byte
+Padding ➔ 3 bytes (to align the total size to the next multiple of 4 or 8)
+
+Total: 4 + 1 + 3 = 8 bytes
+
+Why Padding?
+
+Processors read memory in chunks (4 or 8 bytes).
+Misaligned access slows down performance.
+Padding ensures variables start at the correct boundary.
+
+Static Members and Class Size:
+
+Static members are not stored inside the object ➔ They belong to the class.
+Therefore, they do not affect object size.
+
+
+for example:-
+
+class Student {
+  char c;  // 1 byte
+  int a;   // 4 bytes
+  char b;  // 1 byte
+};
+
+step by step:-
+
+char c ➔ 1 byte
+Padding ➔ 3 bytes (to align next int on a 4-byte boundary)
+int a ➔ 4 bytes
+char b ➔ 1 byte
+
+Padding ➔ 3 bytes (to make total size multiple of largest data type size)
+
+Total size = 1 (char) + 3 (padding) + 4 (int) + 1 (char) + 3 (padding) = 12 bytes.
+
+Largest Data Type Rule:
+The class size must be a multiple of the largest data type's size (here int = 4 bytes).
+So, the class size becomes 12 (which is divisible by 4).
+
+Greedy Alignment:
+
+The compiler uses greedy alignment to arrange members so that the total size is a multiple of the largest member's alignment requirement.
+This minimizes memory access issues and keeps CPU access efficient.
+
+How to reduce size:
+class Student {
+  int a;
+  char c;
+  char b;
+};
+
+0 1 2 3 4 5 6 7 8 9
+Total = 4 + 1 + 1 + 2 = 8 bytes (2 padding)
+int a 0-3
+char c 4
+char b 5
+padding 6-7
+
+
+This may give 8 bytes (compiler-dependent), as the two chars can be packed together before the int.
+
+Padding ensures:
+
+Efficient memory access
+Alignment correctness
+Compliance with processor architecture
+
+
+Static Vs Dynamic Memory Allocation:
+
+
+

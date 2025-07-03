@@ -1,0 +1,70 @@
+constructor
+-> It is a special function that is invoked automatically at the time of object creation.
+-> Name of the constructor is same as the class name.
+-> It doesn;t have any return type.
+-> It is used to initialize the value
+-> Can have multiple constructors (called constructor overloading).
+
+for example:-
+
+class Customer{
+  string name;
+  int accNo;
+  int balance;
+
+  //Default Constructor
+  Customer() {
+    cout<<"Default Constructor Called"<<endl;
+  }
+  // Parameterized Constructor
+  Customer(string n, int a, int b) {
+    name = n;
+    accNo = a;
+    balance = b;
+  }
+  
+  Customer(string name, int accNo, int balance) {
+    this->name = name;
+    this->accNo = accNo;
+    this->balance = balance;
+  }
+
+}
+
+
+int main(){
+  Customer a1;
+  return 0;
+}
+
+what is copy constructor?
+The copy constructor takes a reference to an existing object of the same class (passed as const to avoid modification).
+It is used to copy the values of all data members from one object to another.
+If you don’t define a copy constructor, C++ automatically creates a default shallow copy constructor.
+
+
+Destructor
+It is an instance member function that is invoked automatically at the time of object destruction.
+It is the last function to be called before an object is destroyed.
+
+
+for example:-
+
+class Customer{
+  string name;
+  int accNo;
+  int balance;
+  
+  // Parameterized Constructor
+  Customer(string n, int a, int b) {
+    name = n;
+    accNo = a;
+    balance = b;
+  }
+
+  // Destructor deletes the memory that was dynamically allocated
+  // It is called when the object goes out of scope or is explicitly deleted
+  ~Customer() {
+    cout<<"Destructor Called"<<endl;
+  }
+};
