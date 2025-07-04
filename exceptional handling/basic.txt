@@ -1,1 +1,33 @@
 An exception is an unexpected problem that arises during the execution of a program and our program terminates suddenly with some error/issues.
+
+try: It represent a block of code that may throw an exception placed inside the try block. It's followed by one or more catch blocks. If an exception occurs, try block throws an exception.
+
+
+catch: It represent a block of code that is executed when a particular exception is thrown from the try block.
+The catch statment represents a block of code that is executed when a particular exception is thrown from the try block.
+The code is to handle the exception is written inside the catch block.
+
+
+throw: An exception in c++ can be thrown using the throw keyword. 
+It is used to signal that an error has occurred and to transfer control to the nearest catch block that can handle the exception.
+When program encounters a throw statement, it immediately stops executing the current block of code and looks for a matching catch block to handle the exception.
+
+finally: It represent a block of code that is always executed after the try and catch blocks, regardless of whether an exception was thrown or caught. It is used for cleanup operations, such as closing files or releasing resources.
+
+exception class (parent class) -> derived class (child class) 
+
+-> std::bad_alloc: 
+-> std::runtime_error:
+
+
+
+Compile-Time Error:
+These are the syntax errors which are detected by the compiler at the time of compilation.
+they prevent the code from running as it detects some syntax errors.
+It includes syntax errors such as semicolon missing, misspelled keywords and identifiers,etc.
+
+Runtime Error:
+These are the errors which are not detected by the compiler and produce wrong results.
+They prevent the code from complete execution.
+It includes errors such as dividing a number by zero, finding square root of a negative number etc.
+
