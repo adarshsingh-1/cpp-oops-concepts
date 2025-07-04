@@ -1,0 +1,13 @@
+File Handling By Coder Army
+
+
+  ifstream fin;
+  fin.open("Hello.txt"); //if the file is not present it will create one and open
+  char c;
+  c = fin.get();
+  while(!fin.eof()){
+    cout<<c;
+    c = fin.get();
+  };
+
+  fin.close(); //resource release kar pauon

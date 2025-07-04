@@ -1,0 +1,17 @@
+If you want to do normal tasks of files automatically, then file handling comes into place
+Our codes are executed in RAM and if you want to store the results for later use. then you have to store it in secondary memory.
+File handling is the process of reading and writing files in a programming language.
+In C++, file handling is done using the fstream library, which provides classes for reading and writing files.
+The fstream library provides three classes: ifstream, ofstream, and fstream.
+ifstream is used for reading files, ofstream is used for writing files, and fstream is used for both reading and writing files.
+
+
+File handling is used to store data permanently in a computer. Using file handling we can store our data in secondary memory (Hard disk).
+How to achieve the File Handling
+For achieving file handling we need to follow the following steps:-
+STEP 1-Naming a file
+
+STEP 2-Opening a file
+STEP 3-Writing data into the file
+STEP 4-Reading data from the file
+STEP 5-Closing a file.

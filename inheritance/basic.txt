@@ -1,0 +1,54 @@
+Inheritance
+The capabolity of a class to derive property and characteristics from another class is called inheritance.
+
+
+
+            External Code    Within Class        Derived Class
+Public:      Accessible      Accessible          Accessible
+Protected:  Not Accessible   Accessible          Accessible
+Private:    Not Accessible   Accessible      Not Accessible
+
+
+
+for Example:
+
+class Human{
+  Private:
+  int a;
+  Protected:
+  int b;
+  Public:
+  int c;
+}
+
+main Code
+Human rohit;
+rohit.a // Not Accessible
+rohit.b // Not Accessible
+rohit.c // Accessible 
+
+
+how to make derive class
+class Human{
+  Private:
+  int a;
+  Protected:
+  int b;
+  Public:
+  int c;
+}
+
+
+Private > Protected > Public
+
+
+Base   Child
+public public
+public protected
+public private
+protected public
+protected public
+protected protected
+
+
+Table
