@@ -37,10 +37,16 @@ int main(){
   return 0;
 }
 
+**************************************************
+
+
 what is copy constructor?
 The copy constructor takes a reference to an existing object of the same class (passed as const to avoid modification).
 It is used to copy the values of all data members from one object to another.
 If you don’t define a copy constructor, C++ automatically creates a default shallow copy constructor.
+
+
+**************************************************
 
 
 Destructor
