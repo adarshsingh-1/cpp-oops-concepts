@@ -1,0 +1,153 @@
+A static data member is shared by all objects of the class—only one copy exists for the entire class.
+It is declared using the static keyword inside the class.
+It must be defined (initialized) outside the class.
+Static members are common to all objects; they belong to the class, not to individual objects.
+They are initialized before any object is created.
+
+for example:
+
+class Customer {
+  string name;
+  int accNo;
+  int balance;
+  static int count;  // static data member
+
+  public:
+  Customer(string a, int b, int c) {
+    name = a;
+    accNo = b;
+    balance = c;
+    count++;  // increment static count every time object is created
+  }
+
+  void displayCount() {
+    cout << "Total Customers: " << count << endl;
+  }
+
+  static void showCount() {  // static function to access static variable
+    cout << "Total Customers: " << count << endl;
+  }
+};
+
+int Customer::count = 0;  // Static data member initialized outside class
+
+int main() {
+  Customer a1("John", 12345, 1000);
+  Customer a2("Jeff", 19846, 2000);
+
+  a1.displayCount();
+  Customer::showCount();  // Access static variable without any object
+}
+
+
+************************************************
+
+what is const keyword and why
+The const keyword is used to declare something as constant ➔ its value cannot be changed.
+You can make:
+const variables ➔ cannot change value.
+const function parameters ➔ can't modify argument.
+const member functions ➔ can't modify object state.
+
+for example:
+const int MAX = 100;   // Constant variable
+
+void printValue(const int x) {  // Can't modify x inside this function
+  cout << x << endl;
+}
+
+class Customer {
+  string name;
+  public:
+  void display() const {  // This function cannot modify any member
+    cout << "Display function called" << endl;
+  }
+};
+
+Why use const member functions?
+Improves safety (prevents accidental changes).
+Makes code more readable and reliable.
+Helps in compiler optimizations.
+
+
+************************************************
+
+Encapsulation 
+Encapsulation = Wrapping data and methods together in one unit (class) while restricting direct access to the data.
+
+Achieved by:
+Keeping data members private.
+Providing public methods to access and modify the data (getters and setters).
+Also known as Data Hiding.
+
+for example:
+
+class Customer {
+  string name;
+  int balance;
+  int age;
+
+  public:
+  Customer(string a, int b, int c) {
+    name = a;
+    balance = b;
+    age = c;
+  }
+
+  void deposit(int amount) {
+    if(amount > 0) {
+      balance += amount;
+      cout << "New Balance: " << balance << endl;
+    } else {
+      cout << "Invalid deposit amount" << endl;
+    }
+  }
+
+  int getBalance() {
+    return balance;
+  }
+};
+
+int main() {
+  Customer a1("John", 12345, 25);
+  a1.deposit(500);    // valid
+  a1.deposit(-100);   // invalid
+}
+
+Benefits of Encapsulation:
+Control over how data is accessed/modified.
+Protects data from unauthorized access.
+Helps achieve modularity and maintainability.
+
+**************************************************
+
+Abstraction
+Displaying only essential features while hiding the details.
+why is it needed?
+Simplifies complex systems by showing only necessary parts.
+Reduces complexity and increases efficiency.
+Somebody cannot see the implementation details, only the interface and make them use it.
+
+for example:-
+class Customer{
+
+  string name;
+  int balance;
+
+  public:
+  Customer(string a, int b) {
+    name = a;
+    balance = b;
+  }
+
+  void deposit(int amount){
+    if(amount > 0){
+      balance += amount;
+    }
+  }
+};
+
+int main(){
+  Customer c1("Alice", 1000);
+  c1.deposit(500);
+}
