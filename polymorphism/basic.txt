@@ -1,0 +1,133 @@
+Polymorphism
+many forms
+
+male -> father, son, brother
+
+compile time checks if it the code is missing some semicolons or braces and coverts it into machine executable code (binary form)
+
+
+
+Types of Polymorphism
+
+compiler time polymorphism           Runtime polymorphism
+->function overloading                ->virtual functions
+->operator overloading
+
+
+function overloading -> both have same name but different parameters
+
+for example:
+
+class Area{
+  public:
+  int calArea(int r){
+    return 3.14 * r * r;
+  }
+  int calArea(int l, int b){
+    return l * b;
+  }
+};
+
+int main(){
+  Area a1, a2;
+  a1.calArea(5); //circle
+  a2.calArea(5, 10); //rectangle
+}
+
+
+************************************************************************
+
+
+operator overloading -> changing the meaning of an operator for user defined data types
+These operators can't be overloaded:
+Scope Resolution Operator (::) , Sizeof Operator , Conditional Operator (?:)
+
+for example:
+
+int a = 5;
+int b = 10;
+int c = a + b; // here + is an operator which adds two integers
+
+string s1 = "Hello";
+string s2 = "World";
+string s3 = s1 + " " + s2; // here + is an operator
+// which concatenates two strings
+
+class Complex{
+  int real, imag;
+  public:
+  Complex(int real, int img) {
+    this->real = real;
+    this->imag = img;
+  } 
+
+  void display() {
+    cout << real << " + " << "i" << imag << endl;
+  }
+
+};
+
+int main(){
+  //Complex is a user defined data type
+  Complex c1(3, 4);
+  Complex c2(1, 2);
+  c1.display();
+  c2.display();
+  Complex c3 = c1 + c2; // here + is an operator which adds two complex numbers
+  c3.display();
+  return 0;
+}
+
+// to overload an operator we need to define a function with the name of the operator
+// for example:
+
+Complex operator +(Complex &c) {
+  Complex ans;
+  ans.real = this->real + c.real;
+  ans.imag = this->imag + c.imag;
+  return ans;
+}
+
+************************************************************************
+
+virtual function also called Runtime polymorphism
+
+for example:
+
+class Animal{
+  public:
+  void speak() {
+    cout << "Animal speaks" << endl;
+  }
+};
+
+class Dog : public Animal {
+  public:
+  void speak() {
+    cout << "Dog barks" << endl;
+  }
+};
+
+
+int main(){
+  Animal *a;
+  a = new Dog(); // base class pointer pointing to derived class object
+  a->speak(); // calls Dog's speak() function
+  //output will br "Animal speaks" if we don't use virtual function
+  //output will be "Dog barks" if we use virtual function in base class
+  return 0;
+  
+}
+
+
+
+virtual keyword ka usecase
+
+pure virtual function also known as abstract function
+class Animal {
+  public:
+  virtual void speak() = 0; // pure virtual function
+};
+condition  it will not allow us to create an object of the base class
+it will only allow us to create an object of the derived class
+Used when you dont want to create an object of the base class
