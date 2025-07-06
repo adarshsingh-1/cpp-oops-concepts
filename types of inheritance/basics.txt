@@ -41,3 +41,13 @@ Hierarchical Inheritance one is parent and multiple children
                             /    \
                           /        \
                         Student()    Teacher() these both are child of Human
+
+
+
+Hybrid Inheritance multiple parent and multiple child
+                            Human (name, age)
+                            /    |    \
+                          /      |      \
+                        Student()  Teacher()  Youtuber() these all are child of Human 
+                            |         |
+                          Gaming()   Developer() these both are child of Student and Teacher respectively 
