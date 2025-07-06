@@ -1,4 +1,3 @@
-
 Object-Oriented Programming (OOP) in C++ — Interview Notes
 
 What is OOP?
@@ -8,6 +7,27 @@ Objects represent real-world entities and contain both data (attributes) and beh
 Why use OOP?
 To avoid code duplication or repetition.
 To achieve modularity, reusability, scalability, and maintainability.
+
+Advantages of OOP:
+• Data hiding ensures secure programs that can't be invaded by other code
+• Existing classes can serve as reusable library classes
+• Division into objects makes software development easier
+• Reduces software complexity compared to conventional programming
+• Dynamic binding allows adding new classes at runtime without modifying existing code
+• Derived classes can fulfill base class limitations without modifying base class
+• Easy upgrading and maintenance of software
+• System can be easily scaled from small to large
+• Message passing simplifies interface with external systems
+• Models real-world systems perfectly
+• High code reusability compared to conventional languages
+
+Disadvantages of OOP:
+• Higher processing overhead and resource consumption
+• Objects stored in RAM don't align well with traditional file/database storage
+• Requires learning object-oriented thinking approach
+• Needs mastery of advanced programming concepts
+• Benefits mainly visible in large, long-term projects
+• Complex message passing between objects is hard to debug
 
 Example Without OOP (repetition code)
 int main() {
