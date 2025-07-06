@@ -1,0 +1,43 @@
+Single Ineheritance
+
+class Human{
+  string name;
+  int age;
+};
+
+which constructor will be called at first
+first parent constructor will be called then child constructor
+But in case of destructor the child be called first then parent
+
+
+Multi Level Inheritance
+
+person  -> name, age
+  |
+  |---> Employee -> salary, fees
+  |
+  |---> Manager -> department, teamSize
+
+Animal
+  |
+  |---> Dog -> breed, color
+         |
+         |---> GermanShepherd -> size, trainingLevel
+         
+
+
+
+Multiple Inheritance multiple parent classes and one child 
+
+Youtuber              Teacher         Gaming
+
+
+              Human(It can have multiple parents properties of both parents)
+
+
+Hierarchical Inheritance one is parent and multiple children 
+
+                            Human (name, age)
+                            /    \
+                          /        \
+                        Student()    Teacher() these both are child of Human
