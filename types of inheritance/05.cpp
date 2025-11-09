@@ -1,3 +1,4 @@
+//hybrid inhertance 
 #include<iostream>
 using namespace std;
 
